@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import Favourite from '@/views/Favourite.vue';
 import NotFound from '@/views/NotFound.vue';
+import NetworkError from '@/views/NetworkError.vue';
 
 Vue.use(VueRouter);
 
@@ -18,13 +19,14 @@ const routes = [
 		component: Favourite,
 	},
 	{
-		path: '/404',
+		path: '/:catchAll(.*)',
 		name: '404',
 		component: NotFound,
 	},
 	{
-		path: '*',
-		redirect: { name: '404' },
+		path: '/network-error',
+		name: 'NetworkError',
+		component: NetworkError,
 	},
 ];
 
