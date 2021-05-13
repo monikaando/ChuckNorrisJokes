@@ -12,34 +12,20 @@
 </template>
 
 <script>
-import EventService from "@/services/EventService.js";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Home",
-  data() {
-    return {
-      tenJokes: [],
-    };
-  },
   created() {
-    EventService.getTenJokes()
-      .then((response) => {
-        response.data.value.forEach((element) => {
-          this.tenJokes.push(
-            element.joke.replace(/&quot;/g, "'").replace("?s", "'s")
-          );
-        });
-      })
-      .catch((error) => {
-        if (error.response && error.response.status == 404) {
-          this.$router.push({
-            name: "404",
-          });
-        } else {
-          this.$router.push({
-            name: "NetworkError",
-          });
-        }
-      });
+    this.uploadTenJokes();
+  },
+  computed: {
+    ...mapGetters(["tenJokes"]),
+  },
+  methods: {
+    ...mapActions({
+      uploadTenJokes: "uploadTenJokes",
+    }),
   },
 };
 </script>

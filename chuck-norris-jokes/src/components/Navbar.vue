@@ -1,6 +1,12 @@
 <template>
   <div class="d-flex justify-content-end navbar">
-    <button class="btn btn-sm btn-light mx-5" type="button">More jokes</button>
+    <button
+      class="btn btn-sm btn-light mx-5"
+      type="button"
+      @click="moreJokes()"
+    >
+      More jokes
+    </button>
     <button class="btn btn-sm btn-success mx-5" type="button">Timer ON</button>
     <button class="btn btn-sm btn-danger mx-5" type="button">Timer OFF</button>
     <button class="btn btn-sm btn-secondary mx-2 btn-home" type="button">
@@ -13,8 +19,20 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "Navbar",
+  methods: {
+    ...mapActions({
+      uploadTenJokes: "uploadTenJokes",
+      clearJokes: "clearJokes",
+    }),
+    moreJokes() {
+      this.clearJokes();
+      this.uploadTenJokes();
+    },
+  },
 };
 </script>
 
