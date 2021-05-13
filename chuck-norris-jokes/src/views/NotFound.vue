@@ -10,7 +10,7 @@
     <button
       class="btn btn-lg btn-primary"
       type="button"
-      @click="$router.push('/')"
+      @click="$router.push({ name: 'Home' })"
     >
       Go back to the Home page
     </button>

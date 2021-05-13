@@ -4,7 +4,7 @@ import MainLayout from '@/layouts/Main.vue';
 import ErrorPagesLayout from '@/layouts/ErrorPages.vue';
 
 import Home from '@/views/Home.vue';
-import Favourite from '@/views/Favourite.vue';
+import Favourites from '@/views/Favourites.vue';
 import NotFound from '@/views/NotFound.vue';
 import NetworkError from '@/views/NetworkError.vue';
 
@@ -21,9 +21,9 @@ const routes = [
 				component: Home,
 			},
 			{
-				path: '/favourite',
-				name: 'Favourite',
-				component: Favourite,
+				path: '/favourites',
+				name: 'Favourites',
+				component: Favourites,
 			},
 		],
 	},

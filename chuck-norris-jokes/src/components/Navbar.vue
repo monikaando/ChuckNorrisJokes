@@ -9,10 +9,18 @@
     </button>
     <button class="btn btn-sm btn-success mx-5" type="button">Timer ON</button>
     <button class="btn btn-sm btn-danger mx-5" type="button">Timer OFF</button>
-    <button class="btn btn-sm btn-secondary mx-2 btn-home" type="button">
+    <button
+      class="btn btn-sm btn-secondary mx-2 btn-home"
+      type="button"
+      @click="$router.push({ name: 'Home' })"
+    >
       <img src="/images/home.svg" alt="home" class="mb-1" />Home
     </button>
-    <button class="btn btn-sm btn-secondary mx-2" type="button">
+    <button
+      class="btn btn-sm btn-secondary mx-2"
+      type="button"
+      @click="$router.push({ name: 'Favourites' })"
+    >
       <img src="/images/favourite.png" alt="home" class="mb-1" />Favourites
     </button>
   </div>
@@ -31,6 +39,11 @@ export default {
     moreJokes() {
       this.clearJokes();
       this.uploadTenJokes();
+    },
+  },
+  watch: {
+    $route() {
+      this.clearJokes();
     },
   },
 };

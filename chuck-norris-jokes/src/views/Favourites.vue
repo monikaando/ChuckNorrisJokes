@@ -1,13 +1,12 @@
 <template>
-  <h3>Favourite</h3>
+  <h3>Favourites</h3>
 </template>
 
 <script>
 export default {
-name:'Favourite'
-}
+  name: "Favourites",
+};
 </script>
 
 <style>
-
 </style>
