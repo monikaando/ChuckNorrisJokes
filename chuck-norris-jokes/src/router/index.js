@@ -13,7 +13,6 @@ Vue.use(VueRouter);
 const routes = [
 	{
 		path: '/',
-		name: 'MainLayout',
 		component: MainLayout,
 		children: [
 			{
@@ -29,7 +28,7 @@ const routes = [
 		],
 	},
 	{
-		path: '/',
+		path: '',
 		name: 'ErrorPagesLayout',
 		component: ErrorPagesLayout,
 		children: [

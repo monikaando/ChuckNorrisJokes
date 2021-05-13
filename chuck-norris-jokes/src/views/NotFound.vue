@@ -6,8 +6,14 @@
     <img
       src="https://res.cloudinary.com/mokaweb/image/upload/v1620765925/ChuckNorrisJokes/Error_Page.webp"
       alt="error-page"
-      class="w-50"
     />
+    <button
+      class="btn btn-lg btn-primary"
+      type="button"
+      @click="$router.push('/')"
+    >
+      Go back to the Home page
+    </button>
   </div>
 </template>
 
@@ -19,5 +25,8 @@ export default {
 <style scoped>
 .App {
   background-image: none;
+}
+img {
+  width: 40%;
 }
 </style>

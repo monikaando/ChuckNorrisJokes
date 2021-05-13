@@ -1,5 +1,5 @@
 <template>
-  <div class="App d-flex flex-column align-items-start">
+  <div class="App d-flex flex-column">
     <Navbar />
     <router-view />
     <Footer />
@@ -20,7 +20,7 @@ export default {
 </script>
 <style scoped>
 .App {
-  background-image: url(https://res.cloudinary.com/mokaweb/image/upload/o_30/v1620856337/ChuckNorrisJokes/ChuckNorris.jpg);
+  background-image: url(https://res.cloudinary.com/mokaweb/image/upload/o_30/v1620923519/ChuckNorrisJokes/texas-wallpaper.jpg);
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;

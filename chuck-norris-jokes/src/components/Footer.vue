@@ -8,7 +8,7 @@
         rel="noopener noreferrer"
         href="https://monikaswidzinska.netlify.app/"
         target="_blank"
-        class="text-white text-decoration-underline"
+        class="text-white text-decoration-underline extra-margin"
         >Monika Swidzinska</a
       >
     </p>
@@ -25,11 +25,11 @@ export default {
 .footer {
   bottom: 0;
   height: 2.3vh;
-  background-color: #00000041;
+  background-color: #00000040;
   color: #ffffff;
   font-size: 10px;
 }
-a {
+.extra-margin {
   margin-right: 10px;
 }
 a:hover {
