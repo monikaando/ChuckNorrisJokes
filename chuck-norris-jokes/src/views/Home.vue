@@ -24,7 +24,9 @@ export default {
     EventService.getTenJokes()
       .then((response) => {
         response.data.value.forEach((element) => {
-          this.tenJokes.push(element.joke.replace(/&quot;/g, "'"));
+          this.tenJokes.push(
+            element.joke.replace(/&quot;/g, "'").replace("?s", "'s")
+          );
         });
       })
       .catch((error) => {
