@@ -7,6 +7,3 @@ export default {
   name: "ErrorPagesLayout",
 };
 </script>
-
-<style>
-</style>

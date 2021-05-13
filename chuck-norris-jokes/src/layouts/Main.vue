@@ -1,19 +1,16 @@
 <template>
   <div class="App d-flex flex-column">
-    <Navbar />
     <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default {
   name: "MainLayout",
   components: {
-    Navbar,
     Footer,
   },
 };

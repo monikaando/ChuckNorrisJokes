@@ -1,11 +1,20 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center mt-3 pt-5">
-    <div class="card my-2 mx-3" v-for="(item, index) in tenJokes" :key="index">
-      <div class="card-body px-4">
-        <p class="card-text">
-          {{ item }}
-        </p>
-        <a href="#" class="btn btn-sm btn-blue text-white">Add to favourites</a>
+  <div>
+    <Navbar moreJokesBtn="show" />
+    <div class="d-flex flex-wrap justify-content-center mt-3 pt-5">
+      <div
+        class="card my-2 mx-3"
+        v-for="(item, index) in tenJokes"
+        :key="index"
+      >
+        <div class="card-body px-4">
+          <p class="card-text">
+            {{ item }}
+          </p>
+          <a href="#" class="btn btn-sm btn-blue text-white"
+            >Add to favourites</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -13,9 +22,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Navbar from "@/components/Navbar";
 
 export default {
   name: "Home",
+  components: {
+    Navbar,
+  },
   created() {
     this.uploadTenJokes();
   },
