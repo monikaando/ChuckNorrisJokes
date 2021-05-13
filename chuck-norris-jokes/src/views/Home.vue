@@ -11,9 +11,12 @@
           <p class="card-text">
             {{ item }}
           </p>
-          <a href="#" class="btn btn-sm btn-blue text-white"
-            >Add to favourites</a
+          <button
+            @click="addFavourite(item)"
+            class="btn btn-sm btn-blue text-white"
           >
+            Add to favourites
+          </button>
         </div>
       </div>
     </div>
@@ -29,6 +32,7 @@ export default {
   components: {
     Navbar,
   },
+
   created() {
     this.uploadTenJokes();
   },
@@ -38,6 +42,7 @@ export default {
   methods: {
     ...mapActions({
       uploadTenJokes: "uploadTenJokes",
+      addFavourite: "addFavourite",
     }),
   },
 };

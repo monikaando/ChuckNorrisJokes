@@ -7,9 +7,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		tenJokes: [],
+		favJokes: [],
 	},
 	getters: {
 		tenJokes: (state) => state.tenJokes,
+		favJokes: (state) => state.favJokes,
 	},
 	mutations: {
 		UPLOAD_TEN_JOKES(state) {
@@ -34,6 +36,16 @@ export default new Vuex.Store({
 		CLEAR_JOKES(state) {
 			state.tenJokes = [];
 		},
+		ADD_FAVOURITE(state, payload) {
+			if (state.favJokes.includes(payload)) {
+				console.log('Duplicate!!!!!'); //create alert
+			} else {
+				state.favJokes.push(payload);
+			}
+		},
+		REMOVE_FAVOURITE(state, payload) {
+			state.favJokes.splice(payload.index, 1);
+		},
 	},
 	actions: {
 		uploadTenJokes: ({ commit }) => {
@@ -41,6 +53,12 @@ export default new Vuex.Store({
 		},
 		clearJokes: ({ commit }) => {
 			commit('CLEAR_JOKES');
+		},
+		addFavourite: ({ commit }, payload) => {
+			commit('ADD_FAVOURITE', payload);
+		},
+		removeFavourite: ({ commit }, payload) => {
+			commit('REMOVE_FAVOURITE', payload);
 		},
 	},
 });
