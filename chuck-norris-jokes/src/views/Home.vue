@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="d-flex flex-wrap box">
     <div
+      class="card joke-card m-2"
       v-for="(item, index) in tenJokes"
       :key="index"
-      class="d-flex mx-5 my-4 py-2"
     >
-      <h5>{{ index + 1 }}.</h5>
-      <h5>{{ item }}</h5>
+      <div class="card-body">
+        <p class="card-text">
+          {{ item }}
+        </p>
+        <a href="#" class="btn btn-primary">Add to favourites</a>
+      </div>
     </div>
   </div>
 </template>
@@ -44,8 +48,10 @@ export default {
 };
 </script>
 <style scoped>
-h5 {
-  line-height: 1.5em;
-  margin: 0 10px 0 0;
+.box {
+  width: 60%;
+}
+.joke-card {
+  width: 45%;
 }
 </style>
