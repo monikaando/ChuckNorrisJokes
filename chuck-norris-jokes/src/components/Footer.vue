@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="d-flex justify-content-end align-content-center footer position-fixed w-100"
-  >
-    <p class="pt-1">
+  <div class="d-flex justify-content-end footer position-fixed w-100">
+    <p class="p-padding">
       Application created by
       <a
         rel="noopener noreferrer"
@@ -24,13 +22,16 @@ export default {
 <style>
 .footer {
   bottom: 0;
-  height: 2.3vh;
+  height: 2.5vh;
   background-color: #00000040;
   color: #ffffff;
   font-size: 10px;
 }
 .extra-margin {
   margin-right: 10px;
+}
+.p-padding {
+  padding-top: 2px;
 }
 a:hover {
   color: #ffffff;

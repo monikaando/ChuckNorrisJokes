@@ -1,7 +1,10 @@
 <template>
   <div>
     <Navbar moreJokesBtn="show" />
-    <div class="d-flex flex-wrap justify-content-center mt-3 pt-5">
+    <div
+      class="d-flex flex-wrap justify-content-center mt-4 py-3 scrollbar"
+      id="style-2"
+    >
       <div
         class="card my-2 mx-3"
         v-for="(item, index) in tenJokes"
@@ -51,6 +54,11 @@ export default {
 .card {
   width: 35%;
   opacity: 0.6;
+}
+@media only screen and (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
 }
 .btn-blue {
   background-color: rgb(0, 40, 197);

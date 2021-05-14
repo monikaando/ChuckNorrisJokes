@@ -1,7 +1,10 @@
 <template>
   <div>
     <Navbar timer="show" />
-    <div class="d-flex flex-wrap justify-content-center mt-3 pt-5">
+    <div
+      class="d-flex flex-wrap justify-content-center mt-4 py-3 scrollbar"
+      id="style-2"
+    >
       <div
         class="card my-2 mx-3"
         v-for="(item, index) in favJokes"
@@ -32,12 +35,16 @@ export default {
   components: {
     Navbar,
   },
+  created() {
+    this.loadFavourite();
+  },
   computed: {
     ...mapGetters(["favJokes"]),
   },
   methods: {
     ...mapActions({
       removeFavourite: "removeFavourite",
+      loadFavourite: "loadFavourite",
     }),
   },
 };

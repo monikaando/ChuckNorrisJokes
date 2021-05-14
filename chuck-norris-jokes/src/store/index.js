@@ -43,10 +43,16 @@ export default new Vuex.Store({
 				console.log('You can not add more favourite things (10 is a max)'); //create alert
 			} else {
 				state.favJokes.push(payload);
+				localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
 			}
 		},
 		REMOVE_FAVOURITE(state, payload) {
 			state.favJokes.splice(payload.index, 1);
+			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
+		},
+		LOAD_FAVOURITE(state) {
+			const favJokes = JSON.parse(localStorage.getItem('favouriteJokes'));
+			state.favJokes = favJokes;
 		},
 	},
 	actions: {
@@ -61,6 +67,9 @@ export default new Vuex.Store({
 		},
 		removeFavourite: ({ commit }, payload) => {
 			commit('REMOVE_FAVOURITE', payload);
+		},
+		loadFavourite: ({ commit }) => {
+			commit('LOAD_FAVOURITE');
 		},
 	},
 });
