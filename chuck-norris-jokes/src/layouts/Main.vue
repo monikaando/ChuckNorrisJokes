@@ -24,19 +24,11 @@ export default {
 }
 .scrollbar {
   height: 85vh;
-  background: rgba(255, 255, 255, 0.111);
   border-radius: 10px;
   overflow-y: scroll;
   margin-right: 5%;
   margin-left: 5%;
 }
-
-/* @media screen and (min-width: 300px) and (max-width: 900px) {
-  .scrollbar{
-    width: 95%;
-    margin-left: 2px;
-    }
-  } */
 #style-2::-webkit-scrollbar-track {
   border-radius: 10px;
 }

@@ -10,14 +10,15 @@
         v-for="(item, index) in tenJokes"
         :key="index"
       >
-        <div class="card-body px-4">
+        <div class="d-flex flex-column justify-content-between card-body px-4">
           <p class="card-text">
             {{ item }}
           </p>
           <button
             @click="addFavourite(item)"
-            class="btn btn-sm btn-blue text-white"
+            class="btn btn-sm btn-outline-secondary"
           >
+            <img src="/images/favourite.png" alt="home" class="mb-1" />
             Add to favourites
           </button>
         </div>
@@ -60,6 +61,12 @@ export default {
   }
 }
 .btn-blue {
-  background-color: rgb(0, 40, 197);
+  background-color: rgba(0, 7, 197, 0.474);
+}
+img {
+  width: 17px;
+}
+button {
+  width: 160px;
 }
 </style>

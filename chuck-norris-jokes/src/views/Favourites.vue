@@ -2,7 +2,7 @@
   <div class="h-100">
     <Navbar timer="show" />
     <div
-      class="d-flex flex-wrap justify-content-center mt-4 py-3 scrollbar"
+      class="d-flex flex-wrap justify-content-center align-content-start mt-4 py-3 scrollbar"
       id="style-2"
     >
       <div
@@ -10,15 +10,15 @@
         v-for="(item, index) in favJokes"
         :key="index"
       >
-        <div class="card-body px-4">
+        <div class="d-flex flex-column justify-content-between card-body px-4">
           <p class="card-text">
             {{ item }}
           </p>
           <button
             @click="removeFavourite(item, index)"
-            class="btn btn-sm btn-blue text-white"
+            class="btn btn-sm btn-outline-secondary"
           >
-            Remove from favourites
+            Remove
           </button>
         </div>
       </div>
@@ -55,7 +55,12 @@ export default {
   width: 35%;
   opacity: 0.6;
 }
-.btn-blue {
-  background-color: rgb(0, 40, 197);
+img {
+  width: 17px;
+  margin-right: 7px;
+  padding-bottom: 5px;
+}
+button {
+  width: 80px;
 }
 </style>

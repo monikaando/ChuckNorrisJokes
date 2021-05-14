@@ -36,16 +36,10 @@ export default new Vuex.Store({
 				});
 		},
 		UPLOAD_ONE_JOKE(state) {
-			var iterations = 0;
 			foo();
 			var interval = setInterval(foo, 5000);
 			function foo() {
-				iterations++;
-				if (
-					(iterations >= 11 && state.isActive == true) ||
-					state.favJokes.length >= 10 ||
-					state.isActive == false
-				) {
+				if (state.favJokes.length >= 10 || state.isActive == false) {
 					state.isActive = false;
 					clearInterval(interval);
 				} else {

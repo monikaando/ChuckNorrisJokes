@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-end navbar">
+  <div class="d-flex justify-content-sm-center justify-content-md-end navbar">
     <button
       v-if="moreJokesBtn === 'show'"
       class="btn btn-sm btn-light mx-5"
@@ -19,7 +19,7 @@
       </button>
     </div>
     <button
-      class="btn btn-sm btn-secondary mx-2 btn-home"
+      class="btn btn-sm btn-secondary mx-2"
       type="button"
       @click="$router.push({ name: 'Home' })"
     >
@@ -75,7 +75,7 @@ export default {
   background-color: #00000040;
 }
 img {
-  width: 18%;
+  width: 17px;
   margin: 0 10px 0 0;
 }
 .btn {
