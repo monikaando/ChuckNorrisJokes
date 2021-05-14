@@ -10,7 +10,7 @@
     </button>
     <div v-if="timer === 'show'">
       <button
-        @click="toggle"
+        @click="toggleTimer()"
         :class="[isActive ? 'btn-success' : 'btn-danger']"
         class="btn btn-sm mx-5"
         type="button"
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Navbar",
@@ -50,22 +50,18 @@ export default {
       default: "hide",
     },
   },
-  data() {
-    return {
-      isActive: false,
-    };
+  computed: {
+    ...mapGetters(["isActive"]),
   },
   methods: {
     ...mapActions({
       uploadTenJokes: "uploadTenJokes",
       clearJokes: "clearJokes",
+      toggleTimer: "toggleTimer",
     }),
     moreJokes() {
       this.clearJokes();
       this.uploadTenJokes();
-    },
-    toggle() {
-      this.isActive = this.isActive ? false : true;
     },
   },
   beforeDestroy() {

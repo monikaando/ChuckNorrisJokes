@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-100">
     <Navbar timer="show" />
     <div
       class="d-flex flex-wrap justify-content-center mt-4 py-3 scrollbar"
@@ -45,6 +45,7 @@ export default {
     ...mapActions({
       removeFavourite: "removeFavourite",
       loadFavourite: "loadFavourite",
+      saveFavourite: "saveFavourite:",
     }),
   },
 };

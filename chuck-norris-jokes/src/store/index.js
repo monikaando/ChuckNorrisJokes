@@ -8,10 +8,12 @@ export default new Vuex.Store({
 	state: {
 		tenJokes: [],
 		favJokes: [],
+		isActive: false,
 	},
 	getters: {
 		tenJokes: (state) => state.tenJokes,
 		favJokes: (state) => state.favJokes,
+		isActive: (state) => state.isActive,
 	},
 	mutations: {
 		UPLOAD_TEN_JOKES(state) {
@@ -33,6 +35,35 @@ export default new Vuex.Store({
 					}
 				});
 		},
+		UPLOAD_ONE_JOKE(state) {
+			var iterations = 0;
+			foo();
+			var interval = setInterval(foo, 5000);
+			function foo() {
+				iterations++;
+				if (iterations >= 11 || state.isActive == false) {
+					clearInterval(interval);
+				} else {
+					EventService.getOneJoke()
+						.then((response) => {
+							response.data.value.forEach((element) => {
+								state.favJokes.push(element.joke.replace(/&quot;/g, "'").replace('?s', "'s"));
+							});
+						})
+						.catch((error) => {
+							if (error.response && error.response.status == 404) {
+								this.$router.push({
+									name: '404',
+								});
+							} else {
+								this.$router.push({
+									name: 'NetworkError',
+								});
+							}
+						});
+				}
+			}
+		},
 		CLEAR_JOKES(state) {
 			state.tenJokes = [];
 		},
@@ -48,6 +79,13 @@ export default new Vuex.Store({
 		},
 		REMOVE_FAVOURITE(state, payload) {
 			state.favJokes.splice(payload.index, 1);
+			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
+		},
+		SAVE_FAVOURITE(state) {
+			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
+		},
+		TOGGLE_TIMER_BUTTON(state) {
+			state.isActive = state.isActive ? false : true;
 			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
 		},
 		LOAD_FAVOURITE(state) {
@@ -67,6 +105,14 @@ export default new Vuex.Store({
 		},
 		removeFavourite: ({ commit }, payload) => {
 			commit('REMOVE_FAVOURITE', payload);
+		},
+
+		saveFavourite: ({ commit }) => {
+			commit('SAVE_FAVOURITE');
+		},
+		toggleTimer: ({ commit }) => {
+			commit('TOGGLE_TIMER_BUTTON');
+			commit('UPLOAD_ONE_JOKE');
 		},
 		loadFavourite: ({ commit }) => {
 			commit('LOAD_FAVOURITE');
