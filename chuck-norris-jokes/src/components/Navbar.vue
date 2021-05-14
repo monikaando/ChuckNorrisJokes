@@ -9,11 +9,13 @@
       More jokes
     </button>
     <div v-if="timer === 'show'">
-      <button class="btn btn-sm btn-success mx-5" type="button">
-        Timer ON
-      </button>
-      <button class="btn btn-sm btn-danger mx-5" type="button">
-        Timer OFF
+      <button
+        @click="toggle"
+        :class="[isActive ? 'btn-success' : 'btn-danger']"
+        class="btn btn-sm mx-5"
+        type="button"
+      >
+        {{ isActive ? "Timer ON" : "Timer OFF" }}
       </button>
     </div>
     <button
@@ -48,6 +50,11 @@ export default {
       default: "hide",
     },
   },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
   methods: {
     ...mapActions({
       uploadTenJokes: "uploadTenJokes",
@@ -56,6 +63,9 @@ export default {
     moreJokes() {
       this.clearJokes();
       this.uploadTenJokes();
+    },
+    toggle() {
+      this.isActive = this.isActive ? false : true;
     },
   },
   beforeDestroy() {
