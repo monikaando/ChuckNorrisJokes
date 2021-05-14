@@ -41,7 +41,12 @@ export default new Vuex.Store({
 			var interval = setInterval(foo, 5000);
 			function foo() {
 				iterations++;
-				if (iterations >= 11 || state.isActive == false) {
+				if (
+					(iterations >= 11 && state.isActive == true) ||
+					state.favJokes.length >= 10 ||
+					state.isActive == false
+				) {
+					state.isActive = false;
 					clearInterval(interval);
 				} else {
 					EventService.getOneJoke()
@@ -68,7 +73,7 @@ export default new Vuex.Store({
 			state.tenJokes = [];
 		},
 		ADD_FAVOURITE(state, payload) {
-			if (state.favJokes.includes(payload)) {
+			if (state.favJokes.length > 0 && state.favJokes.includes(payload)) {
 				console.log('Duplicate!!!!!'); //create alert
 			} else if (state.favJokes.length === 10) {
 				console.log('You can not add more favourite things (10 is a max)'); //create alert
