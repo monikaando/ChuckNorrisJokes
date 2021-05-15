@@ -109,17 +109,11 @@ Click a <a href="https://youtu.be/0OLYROgiJqk"><b>video</b></a> and see how DoGG
 <b>Mobile version:</b>
 <br><br>
 
-<div style="display: flex; justify-content: center; width: 200px">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112066/ChuckNorrisJokes/CN1-mobile.png" />
-</div>
 <br><br>
-<div style="display: flex; justify-content: center; width: 200px">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112067/ChuckNorrisJokes/CN2-mobile.png" />
-</div>
 <br><br>
-<div style="display: flex; justify-content: center; width: 200px">
 <img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112519/ChuckNorrisJokes/CN3-mobile.png" />
-</div>
 <br><br>
 
 ## Contact
