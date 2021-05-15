@@ -54,6 +54,11 @@ export default {
   width: 35%;
   opacity: 0.6;
 }
+@media only screen and (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+}
 img {
   width: 17px;
   margin-right: 7px;

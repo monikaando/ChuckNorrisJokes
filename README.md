@@ -38,11 +38,11 @@ The best jokes about Chuck Norris.
     1) Application is built in frontend with using Axios for catching data from the API
     (http://api.icndb.com/jokes/random).
     2) The application is a single page application.
-    3) I used Vue.js, Vuex, Axios, Bootstrap 5.0.1, CSS.
+    3) I used Vue.js, Vuex, Axios, Bootstrap 5.0.1.
     4) The whole application is responsive.
     5) I took care to keep the code is clean and readable.
     6) For images  I used Cloudinary.
-    7) For styling I used Bootstrap and CSS.
+    7) For styling I used Bootstrap.
     8) I added a favicon and the title for the website.
 
 ## Stack
@@ -59,7 +59,7 @@ The best jokes about Chuck Norris.
 
     - Favourites: here we can see the favourite jokes we chose on the Home page. We can remove them from the list by clicking the "Remove" button. After click the Timer ON / OFF button in the navigation bar, we can see one random joke loading every 5 seconds, starting immediately. If we want to make the process faster, we can click the button a couple of times in a row.
     I called one random joke using the API call: http://api.icndb.com/jokes/random/1
-    There is always, maximum of 10 unique jokes visible on the page. The button stays in the position "Timer OFF" if there is already ten jokes on the page and go back to the "Timer ON" position if we remove at least one joke.
+    There is always, maximum of 10 jokes visible on the page. The button stays in the position "Timer OFF" if there is already ten jokes on the page and go back to the "Timer ON" position if we remove at least one joke.
 
     The navigation bar contains one more button in the left corner. It is a button which is changing the background of the page.
 
@@ -91,24 +91,28 @@ The best jokes about Chuck Norris.
 
 ## Visuals
 
-Click a <a href="https://youtu.be/NLCn2qtxro0"><b>video</b></a> and see how DoGGo App works.
+Click a <a href="https://youtu.be/0OLYROgiJqk"><b>video</b></a> and see how DoGGo App works.
 
 <b>Desktop version:</b>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489652/DoGGoApp/1-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110419/ChuckNorrisJokes/CN1.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489652/DoGGoApp/2-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110413/ChuckNorrisJokes/CN2.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489655/DoGGoApp/3-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110411/ChuckNorrisJokes/CN3.png" />
+<br><br>
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110415/ChuckNorrisJokes/CN4.png" />
+<br><br>
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112184/ChuckNorrisJokes/CN5.png" />
 <br><br>
 
 <b>Mobile version:</b>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489650/DoGGoApp/1-mob-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112066/ChuckNorrisJokes/CN1-mobile.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489650/DoGGoApp/2-mob-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112067/ChuckNorrisJokes/CN2-mobile.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1604489649/DoGGoApp/3-mob-DoGGo-App.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112519/ChuckNorrisJokes/CN3-mobile.png" />
 <br><br>
 
 ## Contact

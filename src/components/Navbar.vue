@@ -14,7 +14,7 @@
     <div class="d-flex justify-content-sm-center justify-content-md-end">
       <button
         v-if="moreJokesBtn === 'show'"
-        class="btn btn-sm btn-light me-2 me-md-5 btn-width"
+        class="btn btn-sm btn-light me-2 me-md-5 btn-static"
         type="button"
         @click="moreJokes()"
       >
@@ -24,29 +24,27 @@
         <button
           @click="toggleTimer()"
           :class="[isActive ? 'btn-success' : 'btn-danger']"
-          class="btn btn-sm mx-5 btn-width"
+          class="btn btn-sm mx-5 btn-static"
           type="button"
         >
           {{ isActive ? "Timer ON" : "Timer OFF" }}
         </button>
       </div>
       <button
-        class="btn btn-sm btn-secondary mx-2 btn-width"
+        class="btn btn-sm btn-secondary d-flex justify-content-center mx-2 text-center btn-width"
         type="button"
         @click="$router.push({ name: 'Home' })"
       >
-        <img src="/images/home.svg" alt="home" class="mb-1 img-icons" />Home
+        <img src="/images/home.svg" alt="home" class="img-icons" />
+        <span class="d-none d-sm-block ms-2">Home</span>
       </button>
       <button
-        class="btn btn-sm btn-secondary mx-2 btn-width"
+        class="btn btn-sm btn-secondary d-flex mx-2 btn-width"
         type="button"
         @click="$router.push({ name: 'Favourites' })"
       >
-        <img
-          src="/images/favourite.png"
-          alt="home"
-          class="mb-1 img-icons"
-        />Favourites
+        <img src="/images/favourite.png" alt="home" class="mb-1 img-icons" />
+        <span class="d-none d-sm-block ms-2">Favourites</span>
       </button>
     </div>
   </div>
@@ -98,10 +96,17 @@ export default {
 }
 .img-icons {
   width: 17px;
-  margin: 0 10px 0 0;
+  padding-top: 2px;
 }
-.btn-width {
+.btn-width,
+.btn-static {
   width: 120px;
+}
+
+@media only screen and (max-width: 576px) {
+  .btn-width {
+    width: 35px;
+  }
 }
 .btn:focus {
   box-shadow: none;
