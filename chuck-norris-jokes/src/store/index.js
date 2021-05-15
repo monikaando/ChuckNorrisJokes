@@ -9,11 +9,13 @@ export default new Vuex.Store({
 		tenJokes: [],
 		favJokes: [],
 		isActive: false,
+		notifications: [],
 	},
 	getters: {
 		tenJokes: (state) => state.tenJokes,
 		favJokes: (state) => state.favJokes,
 		isActive: (state) => state.isActive,
+		notifications: (state) => state.notifications,
 	},
 	mutations: {
 		UPLOAD_TEN_JOKES(state) {
@@ -59,14 +61,8 @@ export default new Vuex.Store({
 			state.tenJokes = [];
 		},
 		ADD_FAVOURITE(state, payload) {
-			if (state.favJokes.length > 0 && state.favJokes.includes(payload)) {
-				console.log('Duplicate!!!!!'); //create alert
-			} else if (state.favJokes.length === 10) {
-				console.log('You can not add more favourite things (10 is a max)'); //create alert
-			} else {
-				state.favJokes.push(payload);
-				localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
-			}
+			state.favJokes.push(payload);
+			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
 		},
 		REMOVE_FAVOURITE(state, payload) {
 			state.favJokes.splice(payload.index, 1);
@@ -83,6 +79,17 @@ export default new Vuex.Store({
 			const favJokes = JSON.parse(localStorage.getItem('favouriteJokes'));
 			state.favJokes = favJokes;
 		},
+		PUSH_NOTIFICATION(state, notification) {
+			state.notifications.push({
+				...notification,
+				id: (Math.random().toString(36) + Date.now().toString(36)).substr(2),
+			});
+		},
+		REMOVE_NOTIFICATION(state, notificationToRemove) {
+			state.notifications = state.notifications.filter((notification) => {
+				return notification.id != notificationToRemove.id;
+			});
+		},
 	},
 	actions: {
 		uploadTenJokes: ({ commit }) => {
@@ -91,11 +98,31 @@ export default new Vuex.Store({
 		clearJokes: ({ commit }) => {
 			commit('CLEAR_JOKES');
 		},
-		addFavourite: ({ commit }, payload) => {
-			commit('ADD_FAVOURITE', payload);
+		addFavourite: ({ state, commit, dispatch }, payload) => {
+			if (state.favJokes.length > 0 && state.favJokes.includes(payload)) {
+				dispatch('addNotification', {
+					type: 'danger',
+					message: "You've already added this joke",
+				});
+			} else if (state.favJokes.length === 10) {
+				dispatch('addNotification', {
+					type: 'danger',
+					message: "You can't add more more than 10 favourites jokes",
+				});
+			} else {
+				commit('ADD_FAVOURITE', payload);
+				dispatch('addNotification', {
+					type: 'success',
+					message: 'Joke was successfully added',
+				});
+			}
 		},
-		removeFavourite: ({ commit }, payload) => {
+		removeFavourite: ({ commit, dispatch }, payload) => {
 			commit('REMOVE_FAVOURITE', payload);
+			dispatch('addNotification', {
+				type: 'success',
+				message: 'Joke was successfully removed',
+			});
 		},
 
 		saveFavourite: ({ commit }) => {
@@ -107,6 +134,12 @@ export default new Vuex.Store({
 		},
 		loadFavourite: ({ commit }) => {
 			commit('LOAD_FAVOURITE');
+		},
+		addNotification: ({ commit }, notification) => {
+			commit('PUSH_NOTIFICATION', notification);
+		},
+		removeNotification: ({ commit }, notification) => {
+			commit('REMOVE_NOTIFICATION', notification);
 		},
 	},
 });

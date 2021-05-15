@@ -1,16 +1,19 @@
 <template>
   <div class="App d-flex flex-column">
     <router-view />
+    <NotificationsList />
     <Footer />
   </div>
 </template>
 
 <script>
+import NotificationsList from "@/components/NotificationsList";
 import Footer from "@/components/Footer";
 
 export default {
   name: "MainLayout",
   components: {
+    NotificationsList,
     Footer,
   },
 };
