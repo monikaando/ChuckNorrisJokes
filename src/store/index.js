@@ -30,12 +30,8 @@ export default new Vuex.Store({
 				} else {
 					EventService.getOneJoke()
 						.then((response) => {
-							//check if we are pushing an unique joke to the favJokes array
 							response.data.value.forEach((element) => {
-								let fixedJoke = element.joke.replace(/&quot;/g, "'").replace('?s', "'s");
-								if (this.favJokes.indexOf(fixedJoke) <= -1) {
-									state.favJokes.push(fixedJoke);
-								}
+								state.favJokes.push(element.joke.replace(/&quot;/g, "'").replace('?s', "'s"));
 							});
 						})
 						.catch((error) => {
@@ -79,7 +75,9 @@ export default new Vuex.Store({
 		},
 		LOAD_FAVOURITE(state) {
 			const favJokes = JSON.parse(localStorage.getItem('favouriteJokes'));
+			const background = JSON.parse(localStorage.getItem('backgroundChange'));
 			state.favJokes = favJokes;
+			state.backgroundChange = background;
 		},
 		TOGGLE_TIMER_BUTTON(state) {
 			state.isActive = state.isActive ? false : true;
