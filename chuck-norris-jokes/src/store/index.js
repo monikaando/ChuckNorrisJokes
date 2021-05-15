@@ -10,14 +10,44 @@ export default new Vuex.Store({
 		favJokes: [],
 		isActive: false,
 		notifications: [],
+		backgroundChange: false,
 	},
 	getters: {
 		tenJokes: (state) => state.tenJokes,
 		favJokes: (state) => state.favJokes,
 		isActive: (state) => state.isActive,
 		notifications: (state) => state.notifications,
+		backgroundChange: (state) => state.backgroundChange,
 	},
 	mutations: {
+		UPLOAD_ONE_JOKE(state) {
+			foo();
+			var interval = setInterval(foo, 5000);
+			function foo() {
+				if (state.favJokes.length >= 10 || state.isActive == false) {
+					state.isActive = false;
+					clearInterval(interval);
+				} else {
+					EventService.getOneJoke()
+						.then((response) => {
+							//check if we are pushing an unique joke to the favJokes array
+							response.data.value.forEach((element) => {
+								let fixedJoke = element.joke.replace(/&quot;/g, "'").replace('?s', "'s");
+								if (this.favJokes.indexOf(fixedJoke) <= -1) {
+									state.favJokes.push(fixedJoke);
+								}
+							});
+						})
+						.catch((error) => {
+							if (error.response && error.response.status == 404) {
+								this.$router.push({
+									name: 'NotFound',
+								});
+							}
+						});
+				}
+			}
+		},
 		UPLOAD_TEN_JOKES(state) {
 			EventService.getTenJokes()
 				.then((response) => {
@@ -33,30 +63,6 @@ export default new Vuex.Store({
 					}
 				});
 		},
-		UPLOAD_ONE_JOKE(state) {
-			foo();
-			var interval = setInterval(foo, 5000);
-			function foo() {
-				if (state.favJokes.length >= 10 || state.isActive == false) {
-					state.isActive = false;
-					clearInterval(interval);
-				} else {
-					EventService.getOneJoke()
-						.then((response) => {
-							response.data.value.forEach((element) => {
-								state.favJokes.push(element.joke.replace(/&quot;/g, "'").replace('?s', "'s"));
-							});
-						})
-						.catch((error) => {
-							if (error.response && error.response.status == 404) {
-								this.$router.push({
-									name: 'NotFound',
-								});
-							}
-						});
-				}
-			}
-		},
 		CLEAR_JOKES(state) {
 			state.tenJokes = [];
 		},
@@ -71,13 +77,13 @@ export default new Vuex.Store({
 		SAVE_FAVOURITE(state) {
 			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
 		},
-		TOGGLE_TIMER_BUTTON(state) {
-			state.isActive = state.isActive ? false : true;
-			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
-		},
 		LOAD_FAVOURITE(state) {
 			const favJokes = JSON.parse(localStorage.getItem('favouriteJokes'));
 			state.favJokes = favJokes;
+		},
+		TOGGLE_TIMER_BUTTON(state) {
+			state.isActive = state.isActive ? false : true;
+			localStorage.setItem('favouriteJokes', JSON.stringify(state.favJokes));
 		},
 		PUSH_NOTIFICATION(state, notification) {
 			state.notifications.push({
@@ -89,6 +95,10 @@ export default new Vuex.Store({
 			state.notifications = state.notifications.filter((notification) => {
 				return notification.id != notificationToRemove.id;
 			});
+		},
+		TOGGLE_BACKGROUND(state) {
+			state.backgroundChange = state.backgroundChange ? false : true;
+			localStorage.setItem('backgroundChange', JSON.stringify(state.backgroundChange));
 		},
 	},
 	actions: {
@@ -102,12 +112,12 @@ export default new Vuex.Store({
 			if (state.favJokes.length > 0 && state.favJokes.includes(payload)) {
 				dispatch('addNotification', {
 					type: 'danger',
-					message: "You've already added this joke",
+					message: "You've already added this joke to the list",
 				});
 			} else if (state.favJokes.length === 10) {
 				dispatch('addNotification', {
 					type: 'danger',
-					message: "You can't add more more than 10 favourites jokes",
+					message: "You can't add more more than 10 favourite jokes",
 				});
 			} else {
 				commit('ADD_FAVOURITE', payload);
@@ -140,6 +150,9 @@ export default new Vuex.Store({
 		},
 		removeNotification: ({ commit }, notification) => {
 			commit('REMOVE_NOTIFICATION', notification);
+		},
+		toggleBackground: ({ commit }) => {
+			commit('TOGGLE_BACKGROUND');
 		},
 	},
 });

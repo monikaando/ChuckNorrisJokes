@@ -1,19 +1,22 @@
 <template>
   <div
     :class="typeClass"
-    class="alert alert-dismissible fade show d-flex"
+    class="alert alert-dismissible fade show d-flex pb-0 border-bottom-0"
     role="alert"
   >
     <img
-      src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_100/v1621088962/ChuckNorrisJokes/Chuck-Norris-warning.png"
+      v-if="this.notification.type === 'success'"
+      src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_110/v1621093840/ChuckNorrisJokes/Chuck-Norris-success.png"
+      alt="alert"
+      class="mr-5"
+    />
+    <img
+      v-else
+      src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_100/v1621093931/ChuckNorrisJokes/Chuck-Norris-warning.png"
       alt="alert"
     />
-    <!-- <img
-      src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,h_116/v1621089519/ChuckNorrisJokes/Chuck-Norris-success.png"
-      alt="alert"
-    /> -->
+    <p class="ms-4">{{ notification.message }}</p>
 
-    {{ notification.message }}
     <button
       type="button"
       class="btn-close"

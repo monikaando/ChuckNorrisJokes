@@ -45,7 +45,6 @@ export default {
     ...mapActions({
       removeFavourite: "removeFavourite",
       loadFavourite: "loadFavourite",
-      saveFavourite: "saveFavourite:",
     }),
   },
 };

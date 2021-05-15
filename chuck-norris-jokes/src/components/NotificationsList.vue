@@ -25,7 +25,7 @@ export default {
 <style>
 .notifications-list {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   right: 0;
   margin-right: 15px;
   width: 320px;

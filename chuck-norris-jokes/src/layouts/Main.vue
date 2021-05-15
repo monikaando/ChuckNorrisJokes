@@ -1,5 +1,5 @@
 <template>
-  <div class="App d-flex flex-column">
+  <div :style="backgroundChangeImg" class="App d-flex flex-column">
     <router-view />
     <NotificationsList />
     <Footer />
@@ -9,18 +9,35 @@
 <script>
 import NotificationsList from "@/components/NotificationsList";
 import Footer from "@/components/Footer";
-
+import { mapGetters } from "vuex";
 export default {
   name: "MainLayout",
   components: {
     NotificationsList,
     Footer,
   },
+  computed: {
+    ...mapGetters(["backgroundChange"]),
+    backgroundChangeImg() {
+      return this.backgroundChange ? this.image1 : this.image2;
+    },
+  },
+  data() {
+    return {
+      image1: {
+        "background-image":
+          "url(https://res.cloudinary.com/mokaweb/image/upload/o_30/v1620923519/ChuckNorrisJokes/texas-wallpaper.jpg)",
+      },
+      image2: {
+        "background-image":
+          "url(https://res.cloudinary.com/mokaweb/image/upload/o_30/v1621095537/ChuckNorrisJokes/Chuck-Norris-background.jpg)",
+      },
+    };
+  },
 };
 </script>
 <style>
 .App {
-  background-image: url(https://res.cloudinary.com/mokaweb/image/upload/o_30/v1620923519/ChuckNorrisJokes/texas-wallpaper.jpg);
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
