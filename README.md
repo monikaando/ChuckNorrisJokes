@@ -95,24 +95,31 @@ Click a <a href="https://youtu.be/0OLYROgiJqk"><b>video</b></a> and see how DoGG
 
 <b>Desktop version:</b>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110419/ChuckNorrisJokes/CN1.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1621110419/ChuckNorrisJokes/CN1.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110413/ChuckNorrisJokes/CN2.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1621110413/ChuckNorrisJokes/CN2.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110411/ChuckNorrisJokes/CN3.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1621110411/ChuckNorrisJokes/CN3.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621110415/ChuckNorrisJokes/CN4.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1621110415/ChuckNorrisJokes/CN4.png" />
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112184/ChuckNorrisJokes/CN5.png" />
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_800/v1621112184/ChuckNorrisJokes/CN5.png" />
 <br><br>
 
 <b>Mobile version:</b>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112066/ChuckNorrisJokes/CN1-mobile.png" />
+
+<div style="display: flex; justify-content: center; width: 200px">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112066/ChuckNorrisJokes/CN1-mobile.png" />
+</div>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112067/ChuckNorrisJokes/CN2-mobile.png" />
+<div style="display: flex; justify-content: center; width: 200px">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112067/ChuckNorrisJokes/CN2-mobile.png" />
+</div>
 <br><br>
-<img src="https://res.cloudinary.com/mokaweb/image/upload/v1621112519/ChuckNorrisJokes/CN3-mobile.png" />
+<div style="display: flex; justify-content: center; width: 200px">
+<img src="https://res.cloudinary.com/mokaweb/image/upload/c_scale,w_200/v1621112519/ChuckNorrisJokes/CN3-mobile.png" />
+</div>
 <br><br>
 
 ## Contact
