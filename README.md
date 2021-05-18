@@ -10,7 +10,6 @@
 -   [Content](#content)
 -   [UX/UI](#uxui)
 -   [Footer](#footer)
--   [Online version](#online-version)
 -   [Visuals](#visuals)
 -   [Contact](#contact)
 
@@ -84,10 +83,6 @@ The best jokes about Chuck Norris.
 ## Footer
 
     An additional element with the link to my portfolio.
-
-## Online version
-
-<a href="https://mswidzinska.github.io/ChuckNorrisJokes/">https://mswidzinska.github.io/ChuckNorrisJokes/</a>
 
 ## Visuals
 
