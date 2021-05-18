@@ -5,17 +5,14 @@
       class="d-flex flex-wrap justify-content-center align-content-start mt-4 py-3 scrollbar"
       id="style-2"
     >
-      <div
-        class="card my-2 mx-3"
-        v-for="(item, index) in favJokes"
-        :key="index"
-      >
+      <div class="card my-2 mx-3" v-for="item in favJokes" :key="item">
         <div class="d-flex flex-column justify-content-between card-body px-4">
           <p class="card-text">
             {{ item }}
           </p>
+
           <button
-            @click="removeFavourite(item, index)"
+            @click="removeFavourite(item)"
             class="btn btn-sm btn-outline-secondary"
           >
             Remove

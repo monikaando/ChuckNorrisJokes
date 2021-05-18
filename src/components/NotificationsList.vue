@@ -1,5 +1,5 @@
 <template>
-  <div class="notifications-list">
+  <div class="notifications-list me-2">
     <NotificationMesage
       v-for="notification in notifications"
       :key="notification.id"
@@ -27,7 +27,6 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 0;
-  margin-right: 15px;
   width: 320px;
 }
 </style>
