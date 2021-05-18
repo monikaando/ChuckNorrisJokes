@@ -37,16 +37,16 @@ The best jokes about Chuck Norris.
     1) Application is built in frontend with using Axios for catching data from the API
     (http://api.icndb.com/jokes/random).
     2) The application is a single page application.
-    3) I used Vue.js, Vuex, Axios, Bootstrap 5.0.1.
+    3) I used Vue.js, Vuex, Axios, Bootstrap 5.0.1, CSS.
     4) The whole application is responsive.
     5) I took care to keep the code is clean and readable.
     6) For images  I used Cloudinary.
-    7) For styling I used Bootstrap.
+    7) For styling I used Bootstrap and CSS.
     8) I added a favicon and the title for the website.
 
 ## Stack
 
-    Vue.js,Vuex, Axios, Bootstrap, Sass
+    Vue.js,Vuex, Axios, Bootstrap, CSS
 
 ## Content
 
