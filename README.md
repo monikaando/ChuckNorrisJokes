@@ -86,7 +86,7 @@ The best jokes about Chuck Norris.
 
 ## Visuals
 
-Click a <a href="https://youtu.be/0OLYROgiJqk"><b>video</b></a> and see App works.
+Click a <a href="https://youtu.be/0OLYROgiJqk"><b>video</b></a> and see how the App works.
 
 <b>Desktop version:</b>
 <br><br>
